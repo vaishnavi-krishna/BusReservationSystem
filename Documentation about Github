@@ -1,0 +1,6 @@
+git config --global user.name"vaishnavi6699"
+git config --global user.email"vaishnavi.bandlamudi@aspiresys.com"
+git clone https://github.com/vaishnavi6699/lord.git
+git add .
+git commit -m "first"
+git push origin master
