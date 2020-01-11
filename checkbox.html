@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>checkbox usage</title>
+        <script>
+            function check()
+        {
+            var values=document.getElementsByClassName('value');
+            var str='';
+            for(i=0;i<values.length;i++)
+            {
+                if(values[i].check==true)
+                {
+                    str=str+values[i].values;
+                }
+            }
+            alert(str);
+           
+        }
+        </script>
+        
+    </head>
+    <body>
+        <div class='container'>
+        <input type="checkbox" class="value" id="c1" value="tea">Tea<br><br>
+        <input type="checkbox" class="value" id="c2" value="coffee">Coffee<br><br>
+        <input type="checkbox" class="value" id="c3" value="milk">Milk<br><br>
+        <input type="button" value="Select" onclick="check()">
+        </div>
+    </body>
+</html>

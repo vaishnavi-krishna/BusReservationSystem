@@ -1,0 +1,76 @@
+
+<html>
+    <head>
+        <title>Bus Reservation</title>
+       <script>
+	function validate()
+	{
+	var username=document.getElementById("username").value;
+	var password=document.getElementById("password").value;
+	if(username=="vaishnavi" && password=="123")
+	{
+		alert("Login Success");
+		
+        location.replace("registration.html");
+    }
+	else
+	{
+		alert("Invalid Login");
+		location.reload();
+	}
+	}
+	</script>
+        <style>
+            body{
+                background-image: url('https://cdn.pixabay.com/photo/2016/11/22/23/03/hardwood-1851071__340.jpg');
+                
+            }
+            h1{
+                color: navy;
+                text-align: center;
+                font-family: bookman old style;
+                font-size:36px;
+                border-style: solid;
+                border-color: navy;
+                border-radius: 30px;
+                background-color: lightcyan;
+                margin-left: 100px;
+                height:60px;
+            
+            }
+            #box
+            {
+                border-style: solid;
+                background-color: lightblue;
+                border-color: navy;
+                border-radius:30px;
+                padding-left: 100px;
+                padding-top:100px;
+                height:260px;
+                width:350px;
+                margin-left:400px;
+                margin-top:100px;
+            }
+            #innerBox{
+                font-size: 22px;
+                
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+         <h1><u>Bus Reservation System </u></h1>
+	<div id="box">
+            
+                <div id=innerBox>
+                
+         Username <input type="text" placeholder="Enter Username" id="username" required><br><br>
+	 Password <input type="password" placeholder="Enter Password" id="password" required><br><br>
+	<input type="submit"  value="Submit" onclick="validate()"/>&nbsp&nbsp&nbsp<input type="reset" value="Reset"><br><br>
+    <a href="new_users.html" target="_blank">New user/Sign UP</a><br><br>    
+                </div>
+          
+                   </div>
+    </body>
+</html>
