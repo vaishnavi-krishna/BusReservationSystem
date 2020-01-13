@@ -4,41 +4,129 @@
         <title>Registration page</title>
     </head>
     <script>
-        function run()
+        function check()
         {
+            alert("function is on..");
             var name=document.getElementById("firstname").value;
-            var date1=document.getElementById("date").value;
-            var mail=document.getElementById("mail").value;
-            var pass1=document.getElementById("pass1").value;
-            var pass2=document.getElementById("confirmPassword").value;
-            var address=document.getElementById("address").value;
             var number=document.getElementById("number").value;
+            var mail=document.getElementById("mail").value;
+            var pass1=document.getElementById('pass1').value;
+            var pass2=document.getElementById('pass2').value;
+            var address=document.getElementById('address').value;
+            var values=document.getElementsByClassName('value');
+            var str='';
+            for(i=0;i<values.length;i++)
+            {
+                if(values[i].checked==true)
+                {
+                    str+=("\n"+values[i].value);
+                }
+            }
+            var regx1=/^[A-Z a-z]{3,20}$/;
 
-      var items=document.getElementsByName('bus');
-      {
-		var selectedItems="";
-		for(var i=0; i<items.length; i++){
-			if(items[i].type=='checkbox' && items[i].checked==true)
-				selectedItems+=items[i].value+"\n";
-		}
-		alert(selectedItems);
-        }
-             if(pass1!=pass2)
-               {
-                alert("password is wrong");
-                
-               }
-               if(name!="" && date1!="" && mail!="" && pass1!="" && pass2!="" && address!="" && number!="" )
-               {
+            var regx=/^[7-9]\d{9}$/;
 
-                  alert("Dear "+name+", \nyou are registered successfully.");
-               }
-               if(name!="" || date1!="" || mail!="" || pass1!="" || pass2!="" || address!="" || number!="" )
-              {
-                alert("kindly fill required fields");
-              }
+            var mail=document.getElementById("mail").value;
+
+            var regx2=/^([A-Z a-z 0-9]+)@([a-z A-Z 0-9]+).([a-z]{2,4})$/;
+
+          
+            if(regx1.test(name))
+
+            {
             
+
+                alert("valid name");
+            }
+
+            else
+
+            {
+
+                alert("Invalid name");
+            }
+           if(regx.test(number))
+           {
+
+               alert("valid number");
+           }
+           else 
+           {
+               alert("Invalid number"); 
+           }
+           if(regx2.test(mail))
+           {
+
+              alert("valid mail");
+           }
+          else
+          {
+             alert("Invalid mail");
+          }
+           if(pass1!=pass2)
+            {
+                alert("Password is wrong");
+            }
+            alert(str);
+            var day;
+            var x=document.getElementById("Month");
+            var x1=document.getElementById("Day");
+            var year=document.getElementById("Year");
+            var y=x.options[x.selectedIndex].value;
+            var y1=x1.options[x1 .selectedIndex].value;
+            if(y==1||y==7||y==3||y==5||y==8||y==10||y==12)
+            {
+                //alert("number of days is 31");
+                day=31;
+                
+               
+            }
+            else
+            
+            {
+                if(y==2)
+                {
+                    //alert("number of days is 28");
+                    day=28;
+                    if(y1>28)
+                    {
+                        alert("number of days  in February is 28 \n wrong date and month ");
+              
+                        location("registration.html");
+                    } 
+                       
+                }
+                else
+                {
+                //alert("number of days is 30");
+                day=30;
+                        if(y1==31)
+                        {
+                            alert("number of days in "+x.value+" is 30\n wrong date and month ");
+                   
+                   location("registration.html");
+                        }
+                }
+            
+            }
+            if(regx1.test(name) && regx2.test(mail) && regx.test(number) && pass1==pass2 && address!="")
+            {
+                   alert("You are registered successfully");
+                   document.writeln("Name is : "+name+"<br><br/>");
+                   document.writeln("Date Of Birth : "+x1.value+"-"+x.value+"-"+year.value+"<br><br/>");
+                   document.writeln("Email Address : "+mail+"<br><br/>");
+                   document.writeln("Password : "+pass1+"<br><br/>");
+                   document.writeln("Bus Type : "+str+"<br><br/>");
+                   document.writeln("Address : "+address+"<br><br/>");
+                   document.writeln("Phone Number : "+number+"<br><br/>");
+
+            }
+            else
+            {
+                location("registration.html");
+            }
         }
+        
     </script>
     <style>
         body
@@ -53,7 +141,7 @@
             {
                 
                 background-color: tan;
-    border:solid 3px sandybrown; 
+                border:solid 3px sandybrown; 
                 border-radius:30px;
                 padding-left: 50px;
                 padding-top:50px;
@@ -71,23 +159,93 @@
         <div id="outer">
         <h1>Register Here ...</h1>
         <div id="inner">
-            <label>First Name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" min="8" max="20" placeholder="Max 20 Characters" id="firstname" required><br><br>
-            <label>Last Name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" min="8" max="20" placeholder="Max 20 Characters" id="lastname" ><br><br>
-            <label>Date Of Birth</label>&nbsp&nbsp&nbsp&nbsp<input type="date" id="date" required><br><br>
-            <label>Email Address</label>&nbsp&nbsp&nbsp&nbsp<input type="email" id="mail" placeholder="abc@gmail.com" required><br><br>
-            <label>Password</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="pass1" placeholder="Enter password" required><br><br>
-            <label>Confirm Password</label>&nbsp&nbsp&nbsp&nbsp<input type="password" id="confirmPassword" placeholder="Re-Enter password" required><br><br>
-            
-            <label>Bus Type</label>&nbsp&nbsp&nbsp&nbsp
-            <input type="checkbox"  name="bus" value="AC sleeper" />AC sleeper&nbsp&nbsp
-            <input type="checkbox"  name="bus" value="AC semi-sleeper" />AC semi-sleeper&nbsp&nbsp
-            <input type="checkbox"   name="bus" value="Non-AC sleeper">Non-AC sleeper&nbsp&nbsp
-            <input type="checkbox"  name="bus" value="Non-AC semi-sleeper">Non-AC Semi-Sleeper<br><br>           
-          
-          
-           <label>Current Address</label>&nbsp&nbsp&nbsp&nbsp<textarea rows="4" cols="25" maxlength="300" required></textarea><br><br>
-            <label>Mobile Number</label>&nbsp&nbsp&nbsp&nbsp<input type="number" id="number" pattern="[0-9]{10}" required><br><br>
-            <input type="submit" value="Register" onclick="run()">
+            <label>First Name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" min="8" max="20" placeholder="Max 20 Characters" id="firstname" pattern="/^[a-zA-Z]{3,20}$" required><br><br>
+            <label>Last Name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" min="8" max="20" placeholder="Max 20 Characters" id="lastname" pattern="^[a-zA-Z]{3,20}$"><br><br>
+        <label>Date of Birth</label>&nbsp&nbsp&nbsp
+               <select id="Month">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+        
+                </select>
+                <select id="Day">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">1</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option> 
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>  
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>  
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select id="Year">
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                </select>
+                <br><br>
+                <label>Email Address</label>&nbsp&nbsp&nbsp&nbsp
+                <input type="email" id="mail" placeholder="abc@gmail.com" required><br><br>
+            <label>Password</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" id="pass1" placeholder="Enter password" required><br><br>
+            <label>Confirm Password</label>&nbsp&nbsp&nbsp&nbsp
+                <input type="password" id="pass2" placeholder="Re-Enter password" required><br><br>
+            <label>Bus Type</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <div class='abc'>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+                <input type="checkbox" class="value" id="c1" value="AC Sleeper">AC Sleeper&nbsp&nbsp
+                <input type="checkbox" class="value" id="c2" value="AC Semi-Sleeper">AC Semi-Sleeper&nbsp&nbsp
+                <input type="checkbox" class="value" id="c3" value="Non-AC Sleeper">Non-AC Sleeper&nbsp&nbsp
+                <input type="checkbox" class="value" id="c4" value="Non-AC Semi-Sleeper">Non-AC Semi-Sleeper&nbsp&nbsp
+            </div>
+            <br>
+            <label>Current Address</label>&nbsp&nbsp&nbsp&nbsp
+                <textarea rows="4" cols="25"  id="address" maxlength="300" required></textarea><br><br>
+            <label>Mobile Number</label>&nbsp&nbsp&nbsp&nbsp
+                <input type="number" id="number"  placeholder="Max 10 Digit numbers" ><br><br>
+            <input type="button" value="Register My Form" onclick="check()">
         </div>
         </div>
     </body>
