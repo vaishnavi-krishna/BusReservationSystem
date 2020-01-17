@@ -1,5 +1,13 @@
 
-
+<!--
+    Project    : Bus Reservation System
+    Started on : 07 January 2020
+    Updated on : 17 January 2020
+    Mentor     : Thenarasi Rajendran
+    Developer  : Vaishnavi Bandlamudi
+    This  is a Login page. It consists of validations for required fields.
+    By Default, I had given 5 users details for login validation. 
+-->  
 <html>
     <head>
         <title>Bus Reservation</title>
@@ -7,96 +15,118 @@
 	function validate()
 	{
 	var username=document.getElementById("username").value;
-	var password=document.getElementById("password").value;
-	if(username=="vaishnavi" && password=="123")
-	{
-		alert("Login Success");
+    var password=document.getElementById("password").value;
+    
+    var users=["hari","krishna","rama","sai","vaishnavi"];
+    var passwords=["hari2233","krishna207","abcd","sai9090","vaishu57"];
+    for(i=0;i<users.length;i++)
+    {
+	     if(username==users[i] && password==passwords[i])
+	    {
+		    alert("Login Success");
 		
-        location.replace("registration.html");
+           location.replace("registration.html");
+           break;
+        }
+    	else if(i==(users.length-1))
+	      {
+		    alert("Invalid Login");
+		    location.reload();
+	      }
     }
-	else
-	{
-		alert("Invalid Login");
-		location.reload();
-	}
-	}
+}
 	</script>
         <style>
             body{
-                background-image: url('https://cdn.pixabay.com/photo/2016/11/22/23/03/hardwood-1851071__340.jpg');
-                
+                background-image:url('https://media.boingboing.net/wp-content/uploads/2018/05/cool-background1.png');      
+                background-size: cover;
             }
-            h1{
-                color: navy;
-                text-align: center;
-                font-family: bookman old style;
-                font-size:36px;
-                border-style: solid;
-                border-color: navy;
-                border-radius: 30px;
-                background-color: lightcyan;
-                margin-left: 100px;
-                height:60px;
-            
-            }
+           #top
+           {
+              position: relative;
+              padding-bottom: 30px;
+              
+           }
+           img
+           {
+               height:150px;
+               width:200px;
+           }
+           #topleft
+           {
+               position:relative;
+               color: purple;
+               padding-left: 470px;
+             
+               
+           }
             #box
             {
                 border-style: solid;
-                background-color: lightblue;
-                border-color: navy;
+                background-color:plum;
+                border-color: purple;
                 border-radius:30px;
                 padding-left: 100px;
                 padding-top:50px;
                 height:260px;
                 width:350px;
                 margin-left:400px;
-                margin-top:100px;
+                margin-top:25px;
             }
             #innerBox{
                 font-size: 22px;
+                color: purple;
                 
             }
-            footer.footer {
-                
-             height: 50px;
-             width: 100%;
-             background-color: navy;
-              }
-             #foot
+             #final
              {
-                padding-top: 50px;
+
+                margin-top: 170px;
+                background-color: purple;
+                height: 50px;
+                width:100%;
              }
-             p.copyright {
-              color: #fff;
+             #innerFinal
+             {
+                padding-left: 500px;
              line-height: 50px;
-              font-size: 1.2em;
-              }
+              font-size: 1.1em; 
+              color:white;
+             }
+             
         </style>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
     <body>
-         <h1><u>Bus Reservation System </u></h1>
-         <img src="https://content3.jdmagicbox.com/comp/chennai/b5/044pxx44.xx44.120618180121.q6b5/catalogue/aspire-systems-india-pvt-ltd-sirucheri-chennai-corporate-companies-for-it-taaxq8.jpg?clr=3b1b4b" height="200px" width="300px">
-	<div id="box">
+    <div id="top">
+       
+           <img src="https://content3.jdmagicbox.com/comp/chennai/b5/044pxx44.xx44.120618180121.q6b5/catalogue/aspire-systems-india-pvt-ltd-sirucheri-chennai-corporate-companies-for-it-taaxq8.jpg?clr=3b1b4b" height="200px" width="300px">
+        <div id="topleft" >
+           <h1>Bus Reservation System</h1>
+        </div>
+    </div>
+        <div id="box">
         
-            
-                <div id=innerBox>
-                
-         Username <input type="text" placeholder="Enter Username" id="username" required><br><br>
-	 Password <input type="password" placeholder="Enter Password" id="password" required><br><br>
-	<input type="submit"  value="Submit" onclick="validate()"/>&nbsp&nbsp&nbsp<input type="reset" value="Reset"><br><br>
-    <a href="new_users.html" target="_blank">New user/Sign UP</a><br><br>    
-                </div>
+                <div id="innerBox">
+               
+         Username : &nbsp<input type="text" placeholder="Enter Username" id="username" required><br><br>
+	     Password : &nbsp<input type="password" placeholder="Enter Password" id="password" required><br><br>
+	     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit"  value="Submit" onclick="validate()"/><br><br>
+         
+         &nbsp&nbsp&nbsp<a href="new_users.html" target="_blank">New user/Sign UP</a><br><br>    
+       
+        </div>
+
           
-                </div>
-                <div id=foot>
-                <footer class="footer">
-                    <div class="footerContainer">
-                        <p class="copyright">© Aspire Systems 1996-2020</p>
-                    </div>
-                </footer>
-                </div>
+        </div>
+        <div id=final>
+                    <div id=innerFinal>
+                     <p>© Aspire Systems 1996-2020</p>  
+                     </div>
+                     
+        </div>
     </body>
 </html>
+
 
