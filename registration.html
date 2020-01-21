@@ -164,53 +164,59 @@
                    mailValid=0;
 
                }
-               if(y==2 || y==4 || y==6 || y==9 || y==11)
-              {
-                  if (y==2)
+                /*
+                  checking the date whether it matches the month using array
+                */
+               var evenMonth=[2,4,6,9,11];
+        
+        for(i=0;i<evenMonth.length;i++)
+        {
+            if (evenMonth[i]==y)
 
-                  {
-                          if(y1>28)
+                {
+                     if(y1>28)
 
-                          {
-                            document.getElementById("Day1").style.visibility="visible";
-
-                            dayValid=1;
-                          }
-
-                        else
-
-                         {
-                                 document.getElementById("Day1").style.visibility="hidden";
-                                 dayValid=0;
-
-                         }
-
-                  }
-
-                  else
-
-                 {
-
-                     if(y1==31)
-
-                     {                   
-                           document.getElementById("Day1").style.visibility="visible";
-                           dayValid=1;
-
+                     {
+                         document.getElementById("Day1").style.visibility="visible";
+                         dayValid=1;
                      }
 
-                    else
+                     else
+                     {
+                         document.getElementById("Day1").style.visibility="hidden";
+                         dayValid=0;
+                     }
+                     break;
 
+                }
+              
+                else if((y%2!=0 && y<=7) || (y%2==0 && y>7))
+                {
+
+                         document.getElementById("Day1").style.visibility="hidden";
+                         dayValid=0;
+                         break;
+
+                }
+                else
+            
+                {
+                    if(y1==31)
+                    {                   
+                        document.getElementById("Day1").style.visibility="visible"; 
+                        dayValid=1;
+
+                    } 
+                    else
                     {
 
-                              document.getElementById("Day1").style.visibility="hidden";
-                              dayValid=0;
+                         document.getElementById("Day1").style.visibility="hidden";
+                         dayValid=0;
 
                     }
-
-                 }    
-
-             }    
+             }
+           
+         }   
                /*
                   checking the Address whether it matches the Regular Expression
                 */
