@@ -1,8 +1,7 @@
-
 <!--
     Project    : Bus Reservation System
     Started on : 07 January 2020
-    Updated on : 17 January 2020
+    Updated on : 21 January 2020
     Mentor     : Thenarasi Rajendran
     Developer  : Vaishnavi Bandlamudi
     This  is a Login page. It consists of validations for required fields.
@@ -16,9 +15,14 @@
 	{
 	var username=document.getElementById("username").value;
     var password=document.getElementById("password").value;
-    
+    /*
+        Few UserID Credentials are given default
+    */
     var users=["hari","krishna","rama","sai","vaishnavi"];
     var passwords=["hari2233","krishna207","abcd","sai9090","vaishu57"];
+    /*
+         checking the username and password using for loop        
+    */
     for(i=0;i<users.length;i++)
     {
 	     if(username==users[i] && password==passwords[i])
@@ -109,16 +113,28 @@
         <div id="box">
         
                 <div id="innerBox">
-               
+               <!--
+                   Enter username
+               -->
          Username : &nbsp<input type="text" placeholder="Enter Username" id="username" required><br><br>
-	     Password : &nbsp<input type="password" placeholder="Enter Password" id="password" required><br><br>
-	     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit"  value="Submit" onclick="validate()"/><br><br>
+        <!--
+                   Enter password
+        -->
+         Password : &nbsp<input type="password" placeholder="Enter Password" id="password" required><br><br>
          
+         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+         <!--
+                   On clicking the button the function validate() with start working which is written in script tag.
+           
+          -->
+         <input type="submit"  value="Submit" onclick="validate()"/><br><br>
+         <!--
+                   If you are a new user, it redirects to "new_users.html" page
+        -->
          &nbsp&nbsp&nbsp<a href="new_users.html" target="_blank">New user/Sign UP</a><br><br>    
        
         </div>
-
-          
+   
         </div>
         <div id=final>
                     <div id=innerFinal>
