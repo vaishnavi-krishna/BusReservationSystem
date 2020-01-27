@@ -232,7 +232,7 @@ for(i=0;i<users.length;i++)
     {
         document.getElementById('validation').style.visibility="visible";
         document.getElementById('validationError').style.visibility="hidden";
-        location.replace("registrationPage.html");
+        location.replace("registration.html");
        break;
     }
     else if(i==(users.length-1))
