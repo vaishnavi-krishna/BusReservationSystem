@@ -1,7 +1,7 @@
 <!--
     Project    : Bus Reservation System
     Started on : 07 January 2020
-    Updated on : 21 January 2020
+    Updated on : 27 January 2020
     Mentor     : Thenarasi Rajendran
     Developer  : Vaishnavi Bandlamudi
     This  is a Login page. It consists of validations for required fields.
@@ -10,99 +10,13 @@
 <html>
     <head>
         <title>Bus Reservation</title>
-       <script>
-	function validate()
-	{
-	var username=document.getElementById("username").value;
-    var password=document.getElementById("password").value;
-    /*
-        Few UserID Credentials are given default
-    */
-    var users=["hari","krishna","rama","sai","vaishnavi"];
-    var passwords=["hari2233","krishna207","abcd","sai9090","vaishu57"];
-    /*
-         checking the username and password using for loop        
-    */
-    for(i=0;i<users.length;i++)
-    {
-	     if(username==users[i] && password==passwords[i])
-	    {
-		    alert("Login Success");
-		
-           location.replace("registration.html");
-           break;
-        }
-    	else if(i==(users.length-1))
-	      {
-		    alert("Invalid Login");
-		    location.reload();
-	      }
-    }
-}
-	</script>
-        <style>
-            body{
-                background-image:url('https://media.boingboing.net/wp-content/uploads/2018/05/cool-background1.png');      
-                background-size: cover;
-            }
-           #top
-           {
-              position: relative;
-              padding-bottom: 30px;
-              
-           }
-           img
-           {
-               height:150px;
-               width:200px;
-           }
-           #topleft
-           {
-               position:relative;
-               color: purple;
-               padding-left: 470px;
-             
-               
-           }
-            #box
-            {
-                border-style: solid;
-                background-color:plum;
-                border-color: purple;
-                border-radius:30px;
-                padding-left: 100px;
-                padding-top:50px;
-                height:260px;
-                width:350px;
-                margin-left:400px;
-                margin-top:25px;
-            }
-            #innerBox{
-                font-size: 22px;
-                color: purple;
-                
-            }
-             #final
-             {
-
-                margin-top: 170px;
-                background-color: purple;
-                height: 50px;
-                width:100%;
-             }
-             #innerFinal
-             {
-                padding-left: 500px;
-             line-height: 50px;
-              font-size: 1.1em; 
-              color:white;
-             }
-             
-        </style>
+        
+        <link rel="stylesheet" href="pageStyle.css">
+        <script src="validate.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
-    <body>
+    <body id="login">
     <div id="top">
        
            <img src="https://content3.jdmagicbox.com/comp/chennai/b5/044pxx44.xx44.120618180121.q6b5/catalogue/aspire-systems-india-pvt-ltd-sirucheri-chennai-corporate-companies-for-it-taaxq8.jpg?clr=3b1b4b" height="200px" width="300px">
@@ -116,18 +30,21 @@
                <!--
                    Enter username
                -->
-         Username : &nbsp<input type="text" placeholder="Enter Username" id="username" required><br><br>
+         Username : &nbsp<input type="text" placeholder="Username" id="username" required><br><br>
         <!--
                    Enter password
         -->
-         Password : &nbsp<input type="password" placeholder="Enter Password" id="password" required><br><br>
-         
-         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+         Password : &nbsp<input type="password" placeholder="Password" id="password" required>
+         <label id="validationError" style="color:red; visibility: hidden;">Invalid</label>
+         <label id="validation" style="color:greenyellow; visibility: hidden;">Valid</label>
+         <br><br>
+        
          <!--
                    On clicking the button the function validate() with start working which is written in script tag.
            
           -->
-         <input type="submit"  value="Submit" onclick="validate()"/><br><br>
+          <div id="button">
+         <input type="submit"  value="Submit"  onclick="validate()"/></div><br>
          <!--
                    If you are a new user, it redirects to "new_users.html" page
         -->
@@ -144,5 +61,3 @@
         </div>
     </body>
 </html>
-
-
