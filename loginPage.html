@@ -1,63 +1,41 @@
 <!--
     Project    : Bus Reservation System
     Started on : 07 January 2020
-    Updated on : 27 January 2020
+    Updated on : 15 April 2020
     Mentor     : Thenarasi Rajendran
     Developer  : Vaishnavi Bandlamudi
     This  is a Login page. It consists of validations for required fields.
     By Default, I had given 5 users details for login validation. 
--->  
+--> 
 <html>
     <head>
-        <title>Bus Reservation</title>
-        
+        <title>Login Page</title>
         <link rel="stylesheet" href="pageStyle.css">
         <script src="validate.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
-    <body id="login">
-    <div id="top">
-       
-           <img src="https://content3.jdmagicbox.com/comp/chennai/b5/044pxx44.xx44.120618180121.q6b5/catalogue/aspire-systems-india-pvt-ltd-sirucheri-chennai-corporate-companies-for-it-taaxq8.jpg?clr=3b1b4b" height="200px" width="300px">
-        <div id="topleft" >
-           <h1>Bus Reservation System</h1>
-        </div>
-    </div>
-        <div id="box">
-        
-                <div id="innerBox">
-               <!--
-                   Enter username
-               -->
-         Username : &nbsp<input type="text" placeholder="Username" id="username" required><br><br>
-        <!--
-                   Enter password
-        -->
-         Password : &nbsp<input type="password" placeholder="Password" id="password" required>
-         <label id="validationError" style="color:red; visibility: hidden;">Invalid</label>
-         <label id="validation" style="color:greenyellow; visibility: hidden;">Valid</label>
-         <br><br>
-        
-         <!--
-                   On clicking the button the function validate() with start working which is written in script tag.
-           
-          -->
-          <div id="button">
-         <input type="submit"  value="Submit"  onclick="validate()"/></div><br>
-         <!--
-                   If you are a new user, it redirects to "new_users.html" page
-        -->
-         &nbsp&nbsp&nbsp<a href="new_users.html" target="_blank">New user/Sign UP</a><br><br>    
-       
-        </div>
-   
-        </div>
-        <div id=final>
-                    <div id=innerFinal>
-                     <p>© Aspire Systems 1996-2020</p>  
-                     </div>
-                     
-        </div>
+    <body>
+    <div id='login'>
+      <div id='logo'>
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAIIAggMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwUBBAYHAv/EADwQAAEDAwMBBgQBCgYDAAAAAAEAAgMEBREGEiExEyJBUWGBFDJxkUIHI1JTk6GxwdHSFWJyovDxJTXC/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAIDBAH/xAAcEQEBAQADAAMAAAAAAAAAAAAAAQIREiEDMUH/2gAMAwEAAhEDEQA/APcUREBERAREQEREBERAREQEREBERAREQEREBERARFg9EGcqKeZkET5ZHAMYC5x8gFQav1GyyU7WQtbJWSg7Gu6NH6RXL3G6VUWjmmrnfJV3WQu58Ix5DwGMdPNaZ+O69XnNrt9O3Vt5tkdY0BpJc1zc9CD/ANK1yF5ZoWqefjrP2j4jVRl0JBwWyAeHtg+yutG6slqaltsu7s1BJbFKeNxH4T68dfFVv4rLeDWbHcosDoFlYoEREBERAREQEREBERAWD0WVh3RB4/qaSW6atqIge8ZxTxjyAO3j3yfdWrqJl/1U2iZ/622sbGSDxtZ159SMfQLF4onWrVFwuL2ns2RmeH/NI/ugep3En2ULu3t9uisFua6S612H1jmnlmRw3P06nw5812duZOG/542dUwx0tdRals7mSwF43mPpuHHX1AwqPUzRS311XSHayo21ULh/m5/jlWtJDNYaiWx3sh1urhhsw+VrvBw+hxn2K1Kq2VVVTw24tzWUVT8Nx+KN/LXD0yD7Fe5vWk8eq0M/xNFTz/rY2v8AuMqdRUsTYKaKFnyxsDR9AMKVcVYCIiAiIgIiICIiAiIgLBGRhZRBX3W2xXCJgkA3xO7SJxGQ146EjxA64XE1ttu1igk+ApZquuqsmouDBuLc/haOSPU/8HouAmB5Ks66qmuHmFkpbvW05tV1tlXPRPPdke3a+A/pNLuv0XZ2CxOoGsmq5mz1jI+xEwaRmMHgHnk+qvMDyC1rhUiio5qksc8RMLyxgyXeg9V7vd19F1y2h0RVtiuhu9AKs0s1M0uIDJhh2B4qyUJEREBERAREQEREA9FyUp1lVTSGnFBRw7iI2yd5+3PBOMjKtdR3+nsNK2WdjpZJDtihYO88/wBFSMOsrsMu+EtELun45AD9/wCSDFtv96pdSRWW9xU8z5m5bLBxjgnJ+xUtfqC61l8ntGn6eAvphmaeod3R7fX6qm0fQE65uDnVEtUKNhaZ5Tkufw3J/wB2Fv6pttfZ7m7UtkOTjNZCejgPHHiOOfugubGdSfGvZfBRup+zJZJT/pZHBVPS3vUt9rKwWWOiipKeZ0Qmmyd2On7sHp4q1i1FBW6UqbxEBH2cT90Z52vA6ffH3UH5OacQ6XgfnLp3vkcfPnH8kGhW3jVGntlTeIaWsoi7Ej6cbSzyVtqm/G26bbdKFzHOlMfYl4yCHYOcf6cqD8otZHT6XqIXYMlQ5scbSM5O4E8egB/cqHU9M74TS2n3cyO2GUewH932QWmptS3Cz2q0ua2I1tWwOla5hIHdBOBnzICljrdSPc241jaO3Wxp3yRv70gj8z6+i07q0XL8pNupCN0VHD2jgRkA4J/jsU35UJ5G2ilo437RVVAa4npgc/xwfZBmnumpNQAz2aKnobeSRFLOMvk9cKezXu6U1/bZL+2F0ssZfBPCMB+PDHsfsvqPSVZFG2KLUt0ZGwbWtaQA0DwUlBpH4e8QXOqutZWTQtIb22Dxg/1JQdOiIgIiICIiDltZWCuuk9DXWx7BVUUm9rJPldyCPfIUX+Ia17IA2OiMn6QqBj7bv5rrlhBxOmrHe7dbLtO5kcN1qpA6Pc8Oacc84z5uU0s2tqqnfTOttuhL2lrp+1yAD4gZP8F2CE8IPO9RW8ab0NHa4pDJNVTtDncjc75j7cALctlFqbTUQpbfTQ3Sid3mB0ojdET1HJ6Z+vss6p/8lrOxW3J2Q5nlb6df/j96tL7VmK505fXPZSEtikip5QJGSOPDiOrhyOPDryg0qOwXK6XWG66mki/MHNPRwu3NYfX931WxVWSrq9bUt2lMXwVLFtYN3e3YI6Y83H7KWV1wkv8AUW2Gr20742VDpPxxDJBY3/UW5yemT6YxR1D3agfDJXSSskBkpmwTAxhgABa9uMggnOfH2wg+LJZKyn1Vc7tW9nsn7kG1+SG58eOOAFt6vsI1Da/hmSCOZjt8bz0B8j6FaVLM+GK8XCWvqX09DJIyJr5MtOxnJPHPeJHstemqqunsdRVy1Uj6llOGNJrGytMr8AcAcc9ECmrNa08LaeS00lS9ox8QagDcPMjPJ+y6Cy/4kKbN5kgNU9xJbD8jB4NHn5+65mW73Goo6S3wVJZWRVTKerqNuC52/GG+GS0F3o36q0pKkyajdFJXSStl3SUwglaYw0AAse0cg5JOfFB0iLAGAsoCIiAiIggndUBw7Bkbh473kfyKj3136mn/AGp/tWtcbfVVddSSx1Zip4H73RtyC858Tnp4YUNRZpZYry1szWvuIADiCQxvZhmMZ9CeMdUG/vrv1NP+1P8Aam+u/U0/7U/2rUntUktdRTNqJI4KZuOwY8tBIPB9egGCs09tqY7hU1b6t7u2a4NjydrM4xgZxwAPcnzQSOZUNmE3wlH2x4Dy87j6Z2p2EzpxOaKiMw47Td3vvtyoqG1SUtJbaczBzaRvfwD+ddtxnr6kqOntNbHHXh9e50lSCI3jP5vl2Dgnr3scY+UIN3FWHFwp6YOPU9qcn/ao4qeaFznQ0VHG5/LnMdgu+uG8r6tVFLQMfE6cyxFznNLyXOGXE4ySeACAPoV83qhqa+KKKnqjTtDw6QtzucPIEHhBnFTh0Xw9Jh2S5naHBz1yNq+I6WSNpbHQULGkgkNOASOn4UqLbJNNXSibZJUU7YI3tHMQG45z48uz7KFtqrGUFTCy4SOnmfkSy87G7skADp1dz4ZHkEG12dTnPwtJnduzvPzefy9VmlgfDM54pKWLf874j3j9e6MrTbaapsVsgFZIWUzcTyOed83HT3IBznoMeKnbQ1bLpLVtqGmKTaDE4E7Wgc7eeCeEFmi+W5xyvpAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/2Q==">
+      </div>
+      <div id='heading'>
+         
+          <h1>Bus Reservation System</h1>
+          <h3>You can login here...</h3>
+          <div class='credentials'>
+             <label id='key'>Username : </label><input type='text' id='name' class='value' placeholder="Enter your username" required><br><br>
+             <label id='key'>Password : </label><input type='password' id='pass' class='value' placeholder="Enter your password" required><br>
+             <label id='validateError' >Invalid Login Credentials</label> <br>
+             <a href="new_users.html" target="_blank">New User/Sign Up</a><br><br>
+             <button class='button' type="submit" onclick="checkLoginCredentials()">Login</button>
+          </div>
+      </div>
+      <div id='copyRight'>
+        <p>© Aspire Systems 1996-2020</p>  
+      </div>
+
+      </div>
     </body>
 </html>
