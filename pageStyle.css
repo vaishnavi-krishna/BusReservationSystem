@@ -18,6 +18,8 @@ img
     padding-top:200px;
     text-align:center;
     color:purple;
+   
+   
     
 }
 .credentials
@@ -25,23 +27,19 @@ img
     background-color: peachpuff;
     border: 3px solid palevioletred;
     border-radius: 20px;
-    text-align: center;
-    padding : 50px;
-    margin : 0px 400px;
+    padding: 20px;
+   
 }
 h3
 {
-    color: palevioletred;
+    color: peachpuff;
     font-style: italic;
 }
 #key
 {
    font-style: italic;
 }
-.value
-{
-   margin-left: 40px;
-}
+
 a
 {
    color: purple;
@@ -52,17 +50,20 @@ a
     color:red;
     float:right;
 }
+
 .button
 {
     background-color: pink;
     color: purple;
-    border-radius: 7px;
-    height: 30px;
-    width:50px;
+    padding: 16px 20px;
+    border-radius:10px;
+    margin: 8px 0;
+    width: 30%;
+    font-size: medium;
 }
 #copyRight
 {
-   margin-top: 100%;
+   margin-top: 10%;
    background-color: purple;
    padding: 2px;
    color:whitesmoke;
@@ -71,3 +72,61 @@ a
    height: 40px;
    width:100%;
 }
+
+
+#registration
+{
+    background-image: url('https://lh3.googleusercontent.com/proxy/iFemEdCC2eBz9L1LRiXAdkNGCKFJwZrzEIQ_SFiog45sF3gXRou2ExMrzcA1h-m9_s1iS8azOnIht66pkSFQ2maWCDpq0gWObhoaRZ1nimrbOyvs8RX1gyA8514o3PRCt_39wXISWVrp2VudUmdP68-xjrkPTeJAHFYVA8AmNCqxeljqxLB4XBLEPMRv4aV2oz_NJ7D5IIMmwzc1DxKZxp_YRnAKEIhILOKV4WKeZDjH-v2MDU7Ff9z5j87pr9vRQDy789pD4uvPLA2CVHhIEnvopw');
+     background-size: cover;
+     color:whitesmoke;
+}
+#keys
+{
+    color:black;
+}
+label{
+    display : inline-block;
+    padding : 12px 12px 12px 0px;
+}
+
+#formDetails
+ {
+    border-radius: 5px;
+    background-color:whitesmoke;
+    padding: 20px;
+  }
+
+  input[type=text],input[type=number],input[type=password], select, textarea {
+    width: 70%;
+    padding: 12px;
+    border: 3px solid whitesmoke;
+    border-radius: 4px;
+    resize: vertical;
+    float: right;
+  }
+  #Month,#Day,#Year
+  {
+      width:23%;
+  }
+  #checkBox
+  {
+      color: black;
+      float: right;
+  }
+  #button
+  {
+    background-color: gray;
+    color: black;
+    padding: 16px 20px;
+    border-radius:10px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: medium;
+   
+  }
+  #box
+  {
+      float: right;
+      color:red;
+      visibility: hidden;
+  }
