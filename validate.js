@@ -1,244 +1,207 @@
 /*
     Project    : Bus Reservation System
     Started on : 07 January 2020
-    Updated on : 27 January 2020
+    Updated on : 15 April 2020
     Mentor     : Thenarasi Rajendran
     Developer  : Vaishnavi Bandlamudi
-
-***********************************Registration Page JavaScript************************************* 
-
+    This File includes two javascript validation scripts of login and registration web pages
 */
-
-function chkblnk(eid,errid)
+// *********************************** Login Page ********************************************
+function checkLoginCredentials()
 {
-var x=document.getElementById(eid).value;
-if(x=="")
+var username=document.getElementById("name").value;
+var userPassword=document.getElementById("pass").value;
+var users=["hari","krishna","rama","sai","vaishnavi"];
+var passwords=["hari2233","krishna207","abcd","sai9090","vaishu57"];
+for(i=0;i<users.length;i++)
 {
-document.getElementById(errid).innerHTML="please fill this field";
-
-}
-else
-{
-document.getElementById(errid).innerHTML="";
-}
-}
-
-
-function chkName()
-{
-    var name=document.getElementById("fn").value;
-    var fname=/^[A-Z a-z]{3,20}$/;
-    if(!fname.test(name))
+  
+     if(username==users[i] && userPassword==passwords[i])
     {
-       document.getElementById("error").innerHTML="Invalid";
+      document.getElementById('pass').style.borderColor='lightgreen';
+      document.getElementById('name').style.borderColor='lightgreen';
+        location.replace("registrationPage.html");
+       break;
     }
-   else
-    {
-        document.getElementById("error").innerHTML="";
-    }
-
-}
-
-function chkEmail()
-{
-
-    var mail=document.getElementById("mail").value;
-    var email=/^([A-Z a-z 0-9]+)@([a-z A-Z 0-9]+).([a-z]{2,4})$/;
-    if(!email.test(mail))
-    {
-       document.getElementById("error2").innerHTML="Invalid";
-    }
-   else
-    {
-        document.getElementById("error2").innerHTML="";
-    }
-
-}
-
-function chkPassword()
-{
-
-    var pass1=document.getElementById('pass1').value;
-    var pass2=document.getElementById('pass2').value;
-    var password=/^[A-Z a-z 0-9]{8,30}$/;
-    if(pass1!=pass2 || !password.test(pass1))
-    {
-       document.getElementById("error4").innerHTML="Invalid";
-    }
-   else
-    {
-        document.getElementById("error4").innerHTML="";
-    }
-
-}
-
-function chkNumber()
-{
-    var number=document.getElementById("number").value;
-    var mobileNumber=/^[7-9]\d{9}$/;
-    if(!mobileNumber.test(number))
-    {
-       document.getElementById("error5").innerHTML="Invalid";
-    }
-   else
-    {
-        document.getElementById("error5").innerHTML="";
-    }
-
-}
-
-function chkAddress()
-{
-    var address=document.getElementById('adds').value;
-    var Address1=/^[A-Z a-z 0-9]{3,300}$/;
-    if(!Address1.test(address))
-    {
-       document.getElementById("error6").innerHTML="Invalid";
-    }
-   else
-    {
-        document.getElementById("error6").innerHTML="";
-    }
-
-}
-
-function check()
-{
-
-    var name=document.getElementById("fn").value;
-     var lastname=document.getElementById("ln").value;
-     var number=document.getElementById("number").value;
-     var mail=document.getElementById("mail").value;
-     var pass1=document.getElementById('pass1').value;
-     var pass2=document.getElementById('pass2').value;
-     var address=document.getElementById('adds').value;
-     var values=document.getElementsByClassName('value');
-     var str='';
-     var Address1=/^[A-Z a-z 0-9]{3,300}$/;
-     var mobileNumber=/^[7-9]\d{9}$/;
-     var password=/^[A-Z a-z 0-9]{8,30}$/;
-     var email=/^([A-Z a-z 0-9]+)@([a-z A-Z 0-9]+).([a-z]{2,4})$/;
-     var fname=/^[A-Z a-z]{3,20}$/;
-      /*
-          Storing the selected bus type in variable : "str"
-     */
-     for(i=0;i<values.length;i++)
+    else if(i==(users.length-1))
      {
-         if(values[i].checked==true)
-         {
-
-             str+=("\n"+values[i].value);
-
-         }
-
+        document.getElementById('name').style.borderColor='red';
+        document.getElementById('pass').style.borderColor='red';        
+        
      }
-var count=0;
-
-var x=document.getElementById("Month");
-
-var x1=document.getElementById("Day");
-
-var year=document.getElementById("Year");
-
-var month=x.options[x.selectedIndex].value;
-
-var day=x1.options[x1.selectedIndex].value;
-
-for(i=1;i<=12;i++)
-{
-    if (month==2)
-
-        {
-             if(day>28)
-
-             {
-                 document.getElementById("Day1").style.visibility="visible";
-               
-             }
-
-             else
-             {
-                 document.getElementById("Day1").style.visibility="hidden";
-                 
-             }
-             break;
-        }
-        else if((month%2!=0 && month<=7) || (month%2==0 && month>7))
-        {
-                 document.getElementById("Day1").style.visibility="hidden";
-                 break;
-        }
-        else
-        {
-            if(day==31)
-            {                  
-                document.getElementById("Day1").style.visibility="visible";
-                
-            }
-            else
-            {
-
-                 document.getElementById("Day1").style.visibility="hidden";
-            }
-        }
+    
  }
- 
- for(i=0;i<values.length;i++)
+}
+
+// *********************************** Registration Page *************************************
+
+function checkMonth()
+{
+    var month=document.getElementById('Month').value;
+    if(month=='2')
+    {
+        document.getElementById('29').style.display='none';
+        document.getElementById('30').style.display='none';
+        document.getElementById('31').style.display='none';
+    }
+    else if(month=='4'||month=='6'||month=='9'||month=='11')
+    {
+      document.getElementById('29').style.display='block';
+      document.getElementById('30').style.display='block';
+      document.getElementById('31').style.display='none';
+    }
+    else
+    {
+        document.getElementById('29').style.display='block';
+        document.getElementById('30').style.display='block';
+        document.getElementById('31').style.display='block';
+    }
+}
+
+function checkName()
+{
+  var name=document.getElementById('firstName').value;
+  var fname=/^[A-Z a-z]{3,20}$/; 
+   if(!fname.test(name) || name==" ")
    {
+      document.getElementById('firstName').style.borderColor='red';
+      return false;
+   }
+   else
+   {
+      document.getElementById('firstName').style.borderColor='lightgreen';
+      return true;
+   }
+}
+ 
+function checkMail()
+{
+  var mail=document.getElementById("mail").value;
+  var emailExpression=/^([A-Z a-z 0-9]+)@([a-z A-Z 0-9]+).([a-z]{2,4})$/;
+  if(!emailExpression.test(mail))
+  {
+    document.getElementById('mail').style.borderColor='red';
+    return false;
+ }
+ else
+ {
+    document.getElementById('mail').style.borderColor='lightgreen';
+    return true;
+ }
+}
+
+function checkPassword()
+{
+  var password=document.getElementById('password').value;
+  var cnfPassword=document.getElementById('confirmPassword').value;
+  var passwordExpression=/^[A-Z a-z 0-9]{8,30}$/;
+  if(password!=cnfPassword || !passwordExpression.test(password))
+  {
+    document.getElementById('confirmPassword').style.borderColor='red';
+    return false;
+  }
+  else
+  {
+    document.getElementById('confirmPassword').style.borderColor='lightgreen';
+    document.getElementById('password').style.borderColor='lightgreen';
+    return true;
+  }
+}
+
+function checkNumber()
+{
+  var number=document.getElementById("number").value;
+  var numberExpression=/^[7-9]\d{9}$/;
+  if(!numberExpression.test(number))
+  {
+    document.getElementById('number').style.borderColor='red';
+    return false;
+ }
+ else
+ {
+    document.getElementById('number').style.borderColor='lightgreen';
+    return true;
+ }
+}
+
+function checkAddress()
+{
+  var address=document.getElementById("address").value;
+  var addressExpression=/^[A-Z a-z 0-9]{3,300}$/;
+  if(!addressExpression.test(address))
+  {
+    document.getElementById('address').style.borderColor='red';
+    return false;
+ }
+ else
+ {
+    document.getElementById('address').style.borderColor='lightgreen';
+    return true;
+ }
+}
+
+function checkDate()
+{
+  var Day=document.getElementById('Day').value;
+  var Month1=document.getElementById('Month').value;
+  var Year1=document.getElementById('Year').value;
+  if(Day=="0")
+  {
+     document.getElementById('Day').style.borderColor='red';
+  }
+  else if(Month1=="0")
+  {
+     document.getElementById('Month').style.borderColor='red';
+  }
+  else if(Year1=="0")
+  {
+    document.getElementById('Year').style.borderColor='red';
+  }
+  alert(Day+Month1+Year1);
+  if(Day!="0" && Month1!="0" && Year1!="0")
+  {
+    document.getElementById('Day').style.borderColor='lightgreen';
+    document.getElementById('Month').style.borderColor='lightgreen';
+    document.getElementById('Year').style.borderColor='lightgreen';
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+
+}
+
+function checkFormData()
+{
+  
+  var values=document.getElementsByClassName('values');
+  var count=0;
+  for(i=0;i<values.length;i++)
+  {
        if(values[i].checked==true)
        {
            ++count;
        }
-   }
+  }
    if(count==0)
     {
-        document.getElementById("Boxes").style.visibility="visible";
+        document.getElementById('box').style.visibility="visible";
          
     }
-    else
-    {
-         
-        document.getElementById("Boxes").style.visibility="hidden";
+    else{
+      document.getElementById('box').style.visibility="hidden";
     }
-
-    if( fname.test(name) && email.test(mail) && password.test(pass1) && pass1==pass2 && mobileNumber.test(number) && Address1.test(address) && count>=1 && document.getElementById("Day1").style.visibility=="hidden")
+    var name=checkName();
+    var password=checkPassword();
+    var number=checkNumber();
+    var mail=checkMail();
+    var address=checkAddress();
+    var date=checkDate();
+  
+    if(name==true && password==true && number==true && date==true && mail==true && address==true && count!=0)
     {
-            alert("You have registered successfully");
-            location.replace("loginPage.html");
+       alert('You have been successfully registered');
+       location.replace('loginPage.html');
     }
-
-}
-
-/*
-
-***********************************Login Page JavaScript************************************* 
-
-*/
-function validate()
-{
-var username=document.getElementById("username").value;
-var password=document.getElementById("password").value;
-/*
-    Few UserID Credentials are given default
-*/
-var users=["hari","krishna","rama","sai","vaishnavi"];
-var passwords=["hari2233","krishna207","abcd","sai9090","vaishu57"];
-/*
-     checking the username and password using for loop        
-*/
-for(i=0;i<users.length;i++)
-{
-     if(username==users[i] && password==passwords[i])
-    {
-        document.getElementById('validation').style.visibility="visible";
-        document.getElementById('validationError').style.visibility="hidden";
-        location.replace("registration.html");
-       break;
-    }
-    else if(i==(users.length-1))
-      {
-        document.getElementById('validationError').style.visibility="visible";
-        
-      }
-}
 }
