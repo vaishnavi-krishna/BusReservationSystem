@@ -1,7 +1,7 @@
 <!--
     Project    : Bus Reservation System
     Started on : 07 January 2020
-    Updated on : 27 January 2020
+    Updated on : 15 April 2020
     Mentor     : Thenarasi Rajendran
     Developer  : Vaishnavi Bandlamudi
     This  is a Registration page. It consists of validations for the required fields.
@@ -9,193 +9,78 @@
 --> 
 <html>
 <head>
-<title>Registration form </title>
-<link rel="stylesheet" href="pageStyle.css">
-<script src="validate.js"></script>
-
+   <title>Registration form </title>
+   <link rel="stylesheet" href="pageStyle.css">
+   <script src="validate.js"></script>
 </head>
-<body id="register">
-<div id="main">
-<h2 style="text-align : center;">Bus Registration System</h2>
-<div id="row">
-<div class="col">Your First Name</div>
-<div class="col"><input type="text" id="fn"  onblur="chkName()"/></div>
-<div class="col" id="error" style="color:red"></div>
-</div>
-<div id="row" >
-<div class="col">Your Last Name</div>
-<div class="col"><input type="text" id="ln" onblur="chkblnk('ln','error1')"/></div>
-<div class="col" id="error1" style="color:red"></div>
-</div>
-<div id="row">
-    <div class="col">Your Date Of Birth</div>
-    <div class="col">
-        <select id="Month">
+<body id='registration'>
+    
+        <h2>Register Here...</h2>
+        <div id='formDetails'>
+            <label id='keys'>Firstname</label><input type='text'  onchange="checkName()" placeholder='Enter your name' id='firstName' required><br><br>
+            <label id='keys'>Lastname [Optional]</label><input type='text'  placeholder='Enter your lastname' id='firstName' required><br><br>
+            <label id='keys'>Date of Birth</label>
+                <select id="Year" >
+                    <option value='0'>Year</option>
+                     <option value="1990">1990</option>            
+                     <option value="1991">1991</option>
+                     <option value="1992">1992</option>
+                     <option value="1993">1993</option>
+                     <option value="1994">1994</option>
+                     <option value="1995">1995</option>
+                     <option value="1996">1996</option>
+                     <option value="1997">1997</option>
+                     <option value="1998">1998</option>
+                     <option value="1999">1999</option>
+                     <option value="2000">2000</option>
+                     <option value="2001">2001</option>
+                </select>
+                
+                <select id="Day">
+                    <option value='0'>Day</option>
+                    <option value='1'>1</option>   <option value='2'>2</option> 
+                    <option value='3'>3</option>   <option value='4'>4</option>
+                    <option value='5'>5</option>   <option value='6'>6</option>
+                    <option value='7'>7</option>   <option value='8'>8</option>
+                    <option value='9'>9</option>   <option value='10'>10</option>
+                    <option value='11'>11</option> <option value='12'>12</option> 
+                    <option value='13'>13</option> <option value='14'>14</option>
+                    <option value='15'>15</option> <option value='16'>16</option>
+                    <option value='17'>17</option> <option value='18'>18</option>
+                    <option value='19'>19</option> <option value='20'>20</option>
+                    <option value='21'>21</option> <option value='21'>21</option> 
+                    <option value='23'>23</option> <option value='24'>24</option>
+                    <option value='25'>25</option> <option value='26'>26</option>
+                    <option value='27'>27</option> <option value='28'>28</option>
+                    <option id='29'>29</option> <option id='30'>30</option>
+                    <option id='31'>31</option>
+                </select>
+                <select id="Month" onchange="checkMonth()">
+                    <option value='0'>Month</option>
+                    <option value="1">January</option>    <option value="2">February</option>
+                    <option value="3">March</option>      <option value="4">April</option>
+                    <option value="5">May</option>        <option value="6">June</option>
+                    <option value="7">July</option>       <option value="8">August</option>
+                    <option value="9">September</option>  <option value="10">October</option>
+                    <option value="11">November</option>  <option value="12">December</option>
+                    </select>
+            <br><br>
+            <label id='keys'>Password</label><input type='password'  placeholder='Enter the password' id='password' required><br><br>
+            <label id='keys'>Re-Password</label><input type='password' onchange="checkPassword()" placeholder='Re-Enter the Password' id='confirmPassword' required><br><br>
+            <label id='keys'>Email</label>&nbsp&nbsp&nbsp&nbsp<input type='text' onchange="checkMail()" placeholder='abc@gmail.com' id='mail' required><br><br>
+            <label id='keys'>Number</label><input type='number' onchange="checkNumber()" placeholder='Enter your number' id='number' required><br><br>
+            <label id='keys'>Address</label><textarea placeholder='Your address...' onchange="checkAddress()" id='address' required></textarea><br><br><br>
+            <label id='keys'>Bus Type</label>
+            <div id='checkBox'>
+                <input type="checkbox" class="values" id="c1" value="AC Sleeper">AC Sleeper<br>
+                <input type="checkbox" class="values" id="c2" value="AC Semi-Sleeper">AC Semi-Sleeper<br>
+                <input type="checkbox" class="values" id="c3" value="Non-AC Sleeper">Non-AC Sleeper<br>
+                <input type="checkbox" class="values" id="c4" value="Non-AC Semi-Sleeper">Non-AC Semi-Sleeper<br>
+                  <label id='box'>mininum 1 Selection</label><br>
+            </div>
 
-            <option value="1">January</option>
+            <button type="submit" id='button' onclick="checkFormData()">Register</button>
+        </div>
 
-            <option value="2">February</option>
-
-            <option value="3">March</option>
-
-            <option value="4">April</option>
-
-            <option value="5">May</option>
-
-            <option value="6">June</option>
-
-            <option value="7">July</option>
-
-            <option value="8">August</option>
-
-            <option value="9">September</option>
-
-            <option value="10">October</option>
-
-            <option value="11">November</option>
-
-            <option value="12">December</option>
-
-            </select>
-            <select id="Day">
-                <option value="1">1</option>
-
-                 <option value="2">2</option>
-
-                 <option value="3">1</option>
-
-                 <option value="4">4</option>
-
-                <option value="5">5</option>
-
-                <option value="6">6</option>
-
-                 <option value="7">7</option>
-
-                 <option value="8">8</option>
-
-                 <option value="9">9</option> 
-
-                 <option value="10">10</option>
-
-                 <option value="11">11</option>
-
-                 <option value="12">12</option> 
-
-                 <option value="13">13</option>
-
-                 <option value="14">14</option>
-
-                 <option value="15">15</option>
-
-                 <option value="16">16</option>
-
-                 <option value="17">17</option>
-
-                 <option value="18">18</option>
-
-                 <option value="19">19</option>
-
-                 <option value="20">20</option>
-
-                 <option value="21">21</option>
-
-                 <option value="22">22</option> 
-
-                 <option value="23">23</option>
-
-                 <option value="24">24</option>
-
-                 <option value="25">25</option>
-
-                 <option value="26">26</option>
-
-                 <option value="27">27</option>
-
-                 <option value="28">28</option>
-
-                 <option value="29" >29</option>
-
-                 <option value="30" >30</option>
-
-                 <option value="31" >31</option>
-
-             </select>
-                 <select id="Year">
-
-                 <option value="1990">1990</option>
-
-                 <option value="1991">1991</option>
-
-                 <option value="1992">1992</option>
-
-                 <option value="1993">1993</option>
-
-                 <option value="1994">1994</option>
-
-                 <option value="1995">1995</option>
-
-                 <option value="1996">1996</option>
-
-                 <option value="1997">1997</option>
-
-                 <option value="1998">1998</option>
-
-                 <option value="1999">1999</option>
-
-                 <option value="2000">2000</option>
-
-                 <option value="2001">2001</option>
-
-                 <option value="2002">2002</option>
-
-                 <option value="2003">2003</option>
-             </select>
-             <label id="Day1" style="color: red;visibility: hidden;">Invalid Day</label>
-
-    </div>
-
-</div>
-
-<div id="row" >
-<div class="col">Your Email id</div>
-<div class="col"><input type="text" id="mail" onblur="chkEmail()"/></div>
-<div class="col" id="error2" style="color:red"></div>
-</div>
-<div id="row">
-<div class="col">Your Password</div>
-<div class="col"><input type="text" id="pass1"  onblur="chkblnk('pass1','error3')"/></div>
-<div class="col" id="error3" style="color:red"></div>
-</div>
-<div id="row" >
-<div class="col">Confirm Password</div>
-<div class="col"><input type="password" id="pass2"  onblur="chkPassword()"/></div>
-<div class="col" id="error4" style="color:red" ></div>
-</div>
-<div id="row"  >
-    <div class="col">Your Number</div>
-    <div class="col"><input type="number" id="number" onblur="chkNumber()"/></div>
-    <div class="col" id="error5" style="color:red"></div>
- </div>
- <div id="row" >
-    <div class="col">Your Address</div>
-    <div class="col">
-    <textarea id="adds" onblur="chkAddress()"></textarea></div>
-    <div class="col" id="error6" style="color:red"></div>
-</div>
-<div id="checkbox" style="color:sienna; font-style: italic;">
-    <div class="box">&nbspYour Bus Type</div>
-    <input type="checkbox" class="value" id="c1" value="AC Sleeper">AC Sleeper
-    <input type="checkbox" class="value" id="c2" value="AC Semi-Sleeper">AC Semi-Sleeper
-    <input type="checkbox" class="value" id="c3" value="Non-AC Sleeper">Non-AC Sleeper
-    <input type="checkbox" class="value" id="c4" value="Non-AC Semi-Sleeper">Non-AC Semi-Sleeper
-    <label id="Boxes" style="color: red;visibility: hidden;">Select</label>
-           
-    <br><br>    
-</div>
-
-    <input type="button" value="Register" onclick="check()" style="margin-left:400px; color: sienna;">
-
-</div>
 </body>
 </html>
